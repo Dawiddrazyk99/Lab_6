@@ -12,11 +12,13 @@ public class TestCharacterCopyFlawed {
         BufferedReader in = null;
         BufferedWriter out = null;
 
+        System.out.println("Domyślne kodowanie: " + Charset.defaultCharset().displayName());
+
         long startTime = System.nanoTime();
 
         try{
-            in = new BufferedReader(new FileReader("sample_1920x1280.tiff"));
-            out = new BufferedWriter(new FileWriter("img_copy.tiff"));
+            in = new BufferedReader(new FileReader("dzieweczki.txt"));
+            out = new BufferedWriter(new FileWriter("dzieweczki_java.txt"));
             int c;
 
             while ((c = in.read()) != -1) {
@@ -39,7 +41,5 @@ public class TestCharacterCopyFlawed {
         long timeElapsed = endTime - startTime;
 
         System.out.println("Czas wykonywania w nanosekundach : " + timeElapsed);
-        System.out.println("Czas wykonywania w milisekundach : " + timeElapsed / 1000000);
-        System.out.println("Domyślne kodowanie: " + Charset.defaultCharset().displayName());
     }
 }
