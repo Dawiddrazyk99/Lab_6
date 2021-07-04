@@ -1,6 +1,7 @@
 package pl.lublin.wsei.java.cwiczenia.console;
 
 import java.io.*;
+import java.net.URL;
 
 
 public class TestBufferedBinCopy {
@@ -9,10 +10,12 @@ public class TestBufferedBinCopy {
         BufferedInputStream in = null;
         BufferedOutputStream out = null;
 
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
+
+        URL url = new URL("https://filesamples.com/sample/image/tiff/sample_1920%C3%971280.tiff");
 
         try{
-            in = new BufferedInputStream(new FileInputStream("sample_1920x1280.tiff"));
+            in = new BufferedInputStream(url.openStream());
             out = new BufferedOutputStream(new FileOutputStream("img_copy.tiff"));
             int c;
 
